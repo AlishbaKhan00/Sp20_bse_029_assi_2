@@ -10,7 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    public String code = "5678";
+    public String code = "3745";
     public TextView txt_code;
     public Button btn1;
     public Button btn2;
@@ -63,13 +63,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void setText (int r)
+    private void setText (int a)
     {
         String prevText = txt_code.getText().toString();
+
         if(prevText.length() >= 4){
             return;
         }
-        txt_code.setText (prevText + r);
+        txt_code.setText (prevText + a);
     }
 
     @Override
@@ -151,9 +152,9 @@ public class MainActivity extends AppCompatActivity {
         {
             @Override
             public void onClick(View view) {
-                String prevText = txt_code.getText().toString();
-                if(prevText.length() > 0){
-                    txt_code.setText(prevText.substring(0, prevText.length() - 1));
+                String pText = txt_code.getText().toString();
+                if(pText.length() > 0){
+                    txt_code.setText(pText.substring(0, pText.length() - 1));
                 }
             }
         });
@@ -161,12 +162,12 @@ public class MainActivity extends AppCompatActivity {
         {
             @Override
             public void onClick(View view) {
-                String prevText = txt_code.getText().toString();
-                if(prevText.equals(code)){
+                String pText = txt_code.getText().toString();
+                if(pText.equals(code)){
                     Intent intent = new Intent(getApplicationContext(), MessageActivity.class);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(MainActivity.this, "Wrong Key", Toast.LENGTH_SHORT).show();
+                    Toast.makeText (MainActivity.this, " wrong Key ",  Toast.LENGTH_SHORT).show();
                 }
             }
         });
